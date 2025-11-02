@@ -20,11 +20,15 @@ public class Simulation
         building.getFloor(3).enqueuePerson(new Person(3,80, 3, 1));
         building.getFloor(5).enqueuePerson(new Person(4,90, 5, 2));
 
+        System.out.println("Starting Simulation...\n");
+
         // As long as the elevator isn't stationary, or there are still people to transport, the
         // elevator should continue operating.
         while(elevator.getCurrentDirection() != Direction.STATIONARY || elevator.shouldContinueOperating())
         {
             elevator.move();
         }
+
+        System.out.println("Simulation complete.");
     }
 }

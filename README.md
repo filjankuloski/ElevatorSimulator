@@ -18,8 +18,8 @@ It demonstrates how the elevator processes passenger requests and moves between 
 
 - Floor numbers are represented as integers.
 - The range of floor numbers in a building will always be valid. 
-- No duplicate floor numbers.
-- The lowest floor number will always be less than the highest.
+    - No duplicate floor numbers.
+    - The lowest floor number will always be less than the highest.
 - All people waiting in a queue or traveling in the elevator are located on valid floors within the building.
 - The building contains a single elevator operating within a valid range of floors.
 - The number of people is non-negative, and all requests are processed sequentially.
@@ -27,8 +27,10 @@ It demonstrates how the elevator processes passenger requests and moves between 
 - Time progresses in steps rather than timestamps.
 - The elevator always completes its current direction of travel before reversing directions.
     - For this reason, while traveling in some direction, the elevator will only pick up passengers which will travel in the same direction.
-    - The elevator's final destination also changes if a new passenger has a higher (or lower) destination than the current destination.
-- Requests are served in first-come, first-server fashion.
+    - The elevator's final destination also changes if a new passenger has a higher (or lower if traveling downwards) destination than the current destination.
+- Requests are served in first-come, first-served fashion.
+- If there are no passengers in the elevator, and no requests from the current floor of the elevator, the elevator should move to the closest floor containing people with requests.
+    - Preference is given to people on higher floors if two floors are equally as close from opposite directions of the current floor.
 - If the elevator is incapable of carrying additional passengers, passengers must wait for the next available trip.
 
 These assumptions simplify the simulation logic by avoiding invalid input handling, concurrent requests, or scenarios with multiple buildings and elevators, allowing the focus to remain on the elevator’s behavior.

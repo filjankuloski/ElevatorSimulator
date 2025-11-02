@@ -94,4 +94,4 @@ These assumptions simplify the simulation logic by avoiding invalid input handli
 - Currently, it is assumed that simulation will ensure input validity.
 - Instead, error handling and validation should be used to handle edge cases, such as:
     - Invalid floor numbers
-    - Illegal access attempts
+    - Illegal floor entry attempts
